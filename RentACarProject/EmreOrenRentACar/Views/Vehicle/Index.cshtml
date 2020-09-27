@@ -1,0 +1,133 @@
+﻿@using EmreOrenRentACar.ModelView
+@model VehicleDetayViewModel
+
+@{
+    ViewBag.Title = "Vehicle";
+}
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card my-2">
+            <img src="@Model.Image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h2 class="card-title">@Model.Brand - @Model.Model</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="text-right col-2">Yıl : </h5>
+                    <div class="col-10">
+                        <h5>@Model.Year</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5 class="text-right col-2">Araç Tipi : </h5>
+                    <div class="col-10">
+                        <h5>@Model.Type</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5 class="text-right col-2 ">Günlük Ücret : </h5>
+                    <div class="col-10">
+                        <h5>@Model.DailyPrice.ToString("N2") ₺</h5>
+                    </div>
+                </div>
+
+                <hr />
+                @if (HttpContext.Current.Session["UserInfo"] != null)
+                {
+                    using (Html.BeginForm("CreateRetail", "Vehicle"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="vehicleId" id="vehicleId" value="@Model.Id" />
+                        <div class="form-group row">
+                            <label for="startDate" class="text-right col-2 col-form-label">Başlangıç Tarihi : </label>
+                            <div class="col-4">
+                                <input type="date" min="1000-01-01" value="@Model.StartDate.ToString("yyyy-MM-dd")"
+                                       max="3000-12-31" class="form-control" name="startDate" id="startDate" onchange="changeDate(this)">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="endDate" class="text-right col-2 col-form-label">Bitiş Tarihi : </label>
+                            <div class="col-4">
+                                <input type="date" min="1000-01-01" value="@Model.EndDate.ToString("yyyy-MM-dd")"
+                                       max="3000-12-31" class="form-control" name="endDate" id="endDate" onchange="changeDate(this)">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="result" class="text-right col-2 col-form-label">Toplam Ücret : </label>
+                            <div class="col-4">
+                                <h2 id="result"></h2>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="offset-2">
+                                <input type="submit" value="Onayla" class="col-2 btn btn-sm btn-outline-success btn-default" />
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-center">Araç kiralamak için sisteme giriş yapmanız gerekmektedir.</h5>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    @if (TempData["RentalError"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "@TempData["RentalError"]",
+                })
+            });
+
+
+        </script>
+    }
+    <script>
+
+        var MS_one_day = 1000 * 60 * 60 * 24;
+        var startDate = document.getElementById('startDate');
+        var endDate = document.getElementById('endDate');
+        var result = document.getElementById('result');
+        result.innerText = (@Model.DailyPrice.ToString()).toFixed(2) + " ₺";
+        this.changeDate();
+
+        function changeDate() {
+            var sDate = new Date(startDate.value);
+            var eDate = new Date(endDate.value);
+            if (eDate < sDate) {
+                endDate.value = startDate.value;
+                result.innerText = (@Model.DailyPrice.ToString()).toFixed(2) + " ₺";
+                //--- notify
+            }
+            else {
+                var days = getDiffBetweenDays(sDate, eDate)+1;
+                var price = days *@Model.DailyPrice;
+                result.innerText = price.toFixed(2) + " ₺";
+            }
+        }
+
+        function getDiffBetweenDays(x, y) {
+            var date1 = Date.UTC(x.getFullYear(), x.getMonth(), x.getDate());
+            var date2 = Date.UTC(y.getFullYear(), y.getMonth(), y.getDate());
+            return Math.floor((date2 - date1) / MS_one_day);
+        }
+    </script>
+
+}

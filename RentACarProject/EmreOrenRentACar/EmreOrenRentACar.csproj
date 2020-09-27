@@ -1,0 +1,529 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B742D5F-D9C8-4F87-B203-6EF5ECEE85CE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmreOrenRentACar</RootNamespace>
+    <AssemblyName>EmreOrenRentACar</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44362</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Css\bootstrap.min.css" />
+    <Content Include="Assets\Css\custom.css" />
+    <Content Include="Global.asax" />
+    <Content Include="LoginAttribute\css\main.css" />
+    <Content Include="LoginAttribute\css\util.css" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="LoginAttribute\fonts\montserrat\OFL.txt" />
+    <Content Include="LoginAttribute\fonts\raleway\OFL.txt" />
+    <Content Include="LoginAttribute\fonts\ubuntu\UFL.txt" />
+    <Content Include="LoginAttribute\images\icons\favicon.ico" />
+    <Content Include="LoginAttribute\images\icons\icon-google.png" />
+    <Content Include="LoginAttribute\images\icons\map-marker.png" />
+    <Content Include="LoginAttribute\images\icons\symbol-01.png" />
+    <Content Include="LoginAttribute\js\main.js" />
+    <Content Include="LoginAttribute\vendor\animate\animate.css" />
+    <Content Include="LoginAttribute\vendor\animsition\css\animsition.css" />
+    <Content Include="LoginAttribute\vendor\animsition\css\animsition.min.css" />
+    <Content Include="LoginAttribute\vendor\animsition\js\animsition.js" />
+    <Content Include="LoginAttribute\vendor\animsition\js\animsition.min.js" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="LoginAttribute\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="LoginAttribute\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="LoginAttribute\vendor\bootstrap\js\popper.js" />
+    <Content Include="LoginAttribute\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="LoginAttribute\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="LoginAttribute\vendor\countdowntime\countdowntime.js" />
+    <Content Include="LoginAttribute\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="LoginAttribute\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="LoginAttribute\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="LoginAttribute\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="LoginAttribute\vendor\daterangepicker\moment.js" />
+    <Content Include="LoginAttribute\vendor\daterangepicker\moment.min.js" />
+    <Content Include="LoginAttribute\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="LoginAttribute\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="LoginAttribute\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="LoginAttribute\vendor\select2\select2.css" />
+    <Content Include="LoginAttribute\vendor\select2\select2.js" />
+    <Content Include="LoginAttribute\vendor\select2\select2.min.css" />
+    <Content Include="LoginAttribute\vendor\select2\select2.min.js" />
+    <Content Include="Upload\AUDI-R8.jpg" />
+    <Content Include="Upload\AUDI-S8.jpg" />
+    <Content Include="Upload\BENTLEY-CONTINENTAL.jpg" />
+    <Content Include="Upload\Ducati-XDiavel-based-draXter.jpg" />
+    <Content Include="Upload\FERRARI-CALIFORNIA-T.jpg" />
+    <Content Include="Upload\Honda-Super-Sports-Concept.jpg" />
+    <Content Include="Upload\lamborghini-aventador.jpg" />
+    <Content Include="Upload\Seat-Leon.jpg" />
+    <Content Include="Upload\Yamaha-Tilting-Tesseract-Concept.jpg" />
+    <Content Include="UserRentalAttribute\css\main.css" />
+    <Content Include="UserRentalAttribute\css\util.css" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="UserRentalAttribute\fonts\Lato\OFL.txt" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\OFL.txt" />
+    <Content Include="UserRentalAttribute\images\icons\favicon.ico" />
+    <Content Include="UserRentalAttribute\js\main.js" />
+    <Content Include="UserRentalAttribute\vendor\animate\animate.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\js\popper.js" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="UserRentalAttribute\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="UserRentalAttribute\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="UserRentalAttribute\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="UserRentalAttribute\vendor\select2\select2.css" />
+    <Content Include="UserRentalAttribute\vendor\select2\select2.js" />
+    <Content Include="UserRentalAttribute\vendor\select2\select2.min.css" />
+    <Content Include="UserRentalAttribute\vendor\select2\select2.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VehicleController.cs" />
+    <Compile Include="Areas\Admin\Data\VehicleDto.cs" />
+    <Compile Include="Code\Helper.cs" />
+    <Compile Include="Code\IsAdmin.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
+    <Compile Include="Dto\FilterInputDto.cs" />
+    <Compile Include="Dto\VehicleDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005131514105_edited_table.cs" />
+    <Compile Include="Migrations\202005131514105_edited_table.Designer.cs">
+      <DependentUpon>202005131514105_edited_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005171821442_FinalDatabase.cs" />
+    <Compile Include="Migrations\202005171821442_FinalDatabase.designer.cs">
+      <DependentUpon>202005171821442_FinalDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006211246530_Role_Table_Added.cs" />
+    <Compile Include="Migrations\202006211246530_Role_Table_Added.designer.cs">
+      <DependentUpon>202006211246530_Role_Table_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006211519055_Total_Price_Added.cs" />
+    <Compile Include="Migrations\202006211519055_Total_Price_Added.designer.cs">
+      <DependentUpon>202006211519055_Total_Price_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Rental.cs" />
+    <Compile Include="Models\RentalContext.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
+    <Compile Include="ModelView\RentalHistory.cs" />
+    <Compile Include="ModelView\UserInfo.cs" />
+    <Compile Include="ModelView\UserLogin.cs" />
+    <Compile Include="ModelView\VehicleDetayViewModel.cs" />
+    <Compile Include="ModelView\VehicleListViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="LoginAttribute\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="LoginAttribute\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="LoginAttribute\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="LoginAttribute\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Black.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-BlackItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Bold.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-BoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-ExtraBold.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-ExtraLight.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Italic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Light.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-LightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Medium.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-MediumItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Regular.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-SemiBold.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-Thin.ttf" />
+    <Content Include="LoginAttribute\fonts\raleway\Raleway-ThinItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="LoginAttribute\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="LoginAttribute\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="UserRentalAttribute\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\Lato\Lato-Regular.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="UserRentalAttribute\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-Regular.otf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="UserRentalAttribute\fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="UserRentalAttribute\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\RenderList.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Vehicle\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\Js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005131514105_edited_table.resx">
+      <DependentUpon>202005131514105_edited_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005171821442_FinalDatabase.resx">
+      <DependentUpon>202005171821442_FinalDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006211246530_Role_Table_Added.resx">
+      <DependentUpon>202006211246530_Role_Table_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006211519055_Total_Price_Added.resx">
+      <DependentUpon>202006211519055_Total_Price_Added.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64481</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44362/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

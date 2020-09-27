@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<EmreOrenRentACar.ModelView.RentalHistory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Kiraladığım Araçlar</h2>
+<br />
+
+<link rel="icon" type="image/png" href="~/UserRentalAttribute/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/UserRentalAttribute/css/main.css">
+
+<div class="table100 ver2 m-b-110">
+    <div class="table100-head">
+        <table>
+            <thead>
+                <tr class="row100 head text-center">
+                    <th class="cell100 column1">@Html.DisplayNameFor(model => model.Brand)</th>
+                    <th class="cell100 column2">@Html.DisplayNameFor(model => model.Model)</th>
+                    <th class="cell100 column3">@Html.DisplayNameFor(model => model.StartDate)</th>
+                    <th class="cell100 column4">@Html.DisplayNameFor(model => model.EndDate)</th>
+                    <th class="cell100 column5">@Html.DisplayNameFor(model => model.TotalDay)</th>
+                    <th class="cell100 column5">@Html.DisplayNameFor(model => model.TotalPrice)</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="table100-body js-pscroll">
+        <table>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="row100 body">
+                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.Brand)</td>
+                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.Model)</td>
+                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.StartDate)</td>
+                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.EndDate)</td>
+                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.TotalDay)</td>
+                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.TotalPrice)₺</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/UserRentalAttribute/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/UserRentalAttribute/vendor/bootstrap/js/popper.js"></script>
+<script src="~/UserRentalAttribute/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/UserRentalAttribute/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/UserRentalAttribute/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+
+
+</script>
+<!--===============================================================================================-->
+<script src="~/UserRentalAttribute/js/main.js"></script>
+

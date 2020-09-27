@@ -1,0 +1,20 @@
+﻿@using EmreOrenRentACar.ModelView;
+@model VehicleListViewModel
+
+@foreach (var vehicle in Model.Vehicles)
+{
+    <div class="col-4">
+        <div class="card my-2">
+            <img src="@vehicle.Image" class="card-img-top" alt="..." height="250">
+            <div class="card-body">
+                <h4 class="card-title"><a>@vehicle.Brand</a></h4>
+                <h4 class="card-subtitle"><a>@vehicle.Model | @vehicle.DailyPrice.ToString("N2") ₺</a></h4>
+                <br />
+                <h6 class="card-subtitle">@vehicle.Year Model</h6>
+            </div>
+            <div class="card-body">
+                @Html.ActionLink("Kirala", "Index", "Vehicle", new { id = vehicle.Id }, new { @class = "float-right btn btn-sm btn-outline-primary card-link" })
+            </div>
+        </div>
+    </div>
+}
